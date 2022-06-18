@@ -24,10 +24,9 @@ export default async function handler(
             html: '<h1>Que sucede realmente</h1>',
         }
         const data = await mailer.send(msg);
-        res.status(200).json({ ok: true, msg: 'Correo enviado exitosamente' })
+        return res.status(200).json({ ok: true, msg: 'Correo enviado exitosamente' })
     } catch (e) {
         console.error(e)
-
+        return res.status(400).json({ ok: true, msg: 'Enviar Mensaje' })
     }
-    res.status(200).json({ ok: true, msg: 'Enviar Mensaje' })
 }
